@@ -77,8 +77,10 @@ class TcpTransport(Transport, TcpConnection):
 
     # FeatureDetection API
     def _server_version(self):
-        server_info = self.get_server_info()
-        return server_info['server_version']
+        #hardcoded to 2.1.4 as a workaround for https://github.com/basho/riak-python-client/issues/471
+        return '2.1.4'
+        #server_info = self.get_server_info()
+        #return server_info['server_version']
 
     def ping(self):
         """
