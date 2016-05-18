@@ -163,7 +163,7 @@ class TcpConnection(object):
             # https://github.com/basho/riak-python-client/issues/425
             raise BadResource(e)
         mv = memoryview(msgbuf)
-        msg_code, = struct.unpack("B", mv[0:1])
+        msg_code, = struct.unpack("B", mv[0:1].tobytes())
         data = mv[1:].tobytes()
         return (msg_code, data)
 
