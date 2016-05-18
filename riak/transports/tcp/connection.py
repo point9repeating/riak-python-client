@@ -171,7 +171,7 @@ class TcpConnection(object):
         # TODO FUTURE re-use buffer
         msglen_buf = self._recv(4)
         # NB: msg length is an unsigned int
-        msglen, = struct.unpack('!I', msglen_buf)
+        msglen, = struct.unpack('!I', str(msglen_buf))
         return self._recv(msglen)
 
     def _recv(self, msglen):
